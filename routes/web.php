@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RelatorioReuniaoController;
 use App\Http\Controllers\ReuniaoController;
 use App\Http\Controllers\TemaDeEstudoController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,26 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+// Rotas que o usuário precisa logar no sistema para acessar
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Grupo de Rotas Conselheiro da Equipe
+    // Route::group([
+    //     'prefix' => 'conselheiro',
+    //     'as' => 'conselheiro.'
+    // ], function(){
+    //     Route::get('criar', [ConselheiroEquipeController::class, 'formCreate'])->name('form_cad_conselheiro');
+    //     Route::post('salvar-conselheiro', [ConselheiroEquipeController::class, 'saveData'])->name('salvar_conselheiro');
+    //     Route::get('listar-conselheiros', [ConselheiroEquipeController::class, 'index'])->name('listar-conselheiros');
+    //     Route::get('info-conselheiro/{id}', [ConselheiroEquipeController::class, 'viewData'])->name('info-conselheiro');
+    //     Route::get('editar-conselheiro/{id}', [ConselheiroEquipeController::class, 'updateData'])->name('editar-conselheiro');
+    //     Route::get('excluir-conselheiro/{id}', [ConselheiroEquipeController::class, 'destroy'])->name('excluir-conselheiro');
+    // });
+
+
 });
 
 
@@ -124,6 +141,19 @@ Route::group([
     Route::get('info-equipe/{id}', [DadosEquipeController::class, 'viewData'])->name('info-equipe');
     Route::get('editar-equipe/{id}', [DadosEquipeController::class, 'updateData'])->name('editar-equipe');
     Route::get('excluir-equipe/{id}', [DadosEquipeController::class, 'destroy'])->name('excluir-equipe');
+});
+
+// Grupo de Rotas Cadastro usuário 
+Route::group([
+    'prefix' => 'usuario',
+    'as' => 'usuario.'
+], function(){
+    Route::get('criar', [UsuarioController::class, 'formCreate'])->name('form_cad_usuario');
+    Route::post('salvar-usuario', [UsuarioController::class, 'saveData'])->name('salvar_usuario');
+    Route::get('listar-usuarios', [UsuarioController::class, 'index'])->name('listar-usuarios');
+    Route::get('info-usuario/{id}', [UsuarioController::class, 'viewData'])->name('info-usuario');
+    Route::get('editar-usuario/{id}', [UsuarioController::class, 'updateData'])->name('editar-usuario');
+    Route::get('excluir-usuario/{id}', [UsuarioController::class, 'destroy'])->name('excluir-usuario');
 });
 
 // Rota para a FAQ do Sistema

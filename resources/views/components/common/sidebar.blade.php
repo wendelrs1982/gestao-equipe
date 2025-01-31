@@ -4,7 +4,7 @@
         <span class="app-brand-logo demo">
             <img src="{{asset('assets/img/logo.png')}}" alt="Brand Logo" class="img-fluid">
         </span>
-        <a href="{{route('home')}}" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Sis CRE</a>
+        <a href="{{route('home')}}" class="app-brand-text demo sidenav-text font-weight-normal ml-2">Gestão Equipe ENS</a>
         <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
             <i class="ion ion-md-menu align-middle"></i>
         </a>
@@ -109,11 +109,29 @@
             </ul>
         </li>
 
-        
+        <!-- Super Usuários -->
+        <li class="sidenav-item">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-user"></i>
+                <div>Usuários</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item">
+                    <a href="{{route('usuario.form_cad_usuario')}}" class="sidenav-link">
+                        <div>Cadastrar</div>
+                    </a>
+                </li>
+                <li class="sidenav-item">
+                    <a href="{{route('usuario.listar-usuarios')}}" class="sidenav-link">
+                        <div>Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+ 
         <!-- Pages -->
         <li class="sidenav-divider mb-1"></li>
         <li class="sidenav-header small font-weight-semibold">Outras Opções</li>
-       
         <li class="sidenav-item">
             <a href="{{route('inicio')}}" class="sidenav-link">
                 <i class="sidenav-icon feather icon-user"></i>

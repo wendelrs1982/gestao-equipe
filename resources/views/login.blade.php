@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 
-@section('titulo-pagina', 'SysCre - Login')
+@section('titulo-pagina', 'Gestão Equipes ENS - Login')
 
 @section('content')
 
@@ -21,7 +21,7 @@
         <form class="my-5" method="post">
             <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="">
                 <div class="clearfix"></div>
             </div>
             <div class="form-group">
@@ -29,14 +29,10 @@
                     <span>Senha</span>
                     <a href="pages_authentication_password-reset.html" class="d-block small">Esqueceu a senha?</a>
                 </label>
-                <input type="password" class="form-control">
+                <input type="password" class="form-control" name="">
                 <div class="clearfix"></div>
             </div>
             <div class="d-flex justify-content-between align-items-center m-0">
-                <label class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input">
-                    <span class="custom-control-label">Lembrar-me</span>
-                </label>
                 <!-- <button type="submit" class="btn btn-primary">Acessar</button> -->
                 <a class="btn btn-primary" href="{{route('home')}}" role="button">Acessar</a>
             </div>

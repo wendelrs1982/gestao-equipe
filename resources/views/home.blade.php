@@ -1,6 +1,6 @@
 @extends('layouts.main-layout')
 
-@section('titulo-pagina', 'SysCre - Página Inicial')
+@section('titulo-pagina', 'Gestão Equipes ENS - Home')
 @section('content')
 
 @component('components.common.sidebar')
